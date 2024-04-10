@@ -1,0 +1,21 @@
+{
+  "name": "backend-server",
+  "version": "1.0.0",
+  "description": "This is a backend service for a weather app",
+  "main": "src/server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "nodemon --exec ts-node src/server.ts"
+  },
+  "author": "Pontus Norup (minecraftpontus@gmail.com)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.4"
+  }
+}
