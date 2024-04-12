@@ -1,5 +1,5 @@
 import { OpenWeatherData } from "../../types/openWeatherTypes.js";
-import { Temp } from "../../types/temp.js";
+import { Temp } from "../../types/tempType.js";
 import WeatherData from "./WeatherData.js";
 import returnIconUrl from "./helpers/returnIconUrl.js";
 import checkMinMaxTempsIn from "./helpers/checkMinMaxTempsIn.js";

@@ -1,4 +1,4 @@
-import { Temp } from "../../../types/temp.js";
+import { Temp } from "../../../types/tempType.js";
 
 const checkMinMaxTempsIn = (currentTemp: Temp, newTemp: Temp): Temp => {
   //This function checks each interval so that we get the lowest and highest temp for each WeatherData.

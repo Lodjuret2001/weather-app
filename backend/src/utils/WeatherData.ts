@@ -1,4 +1,4 @@
-import { Temp } from "../../types/temp.js";
+import { Temp } from "../../types/tempType.js";
 
 class WeatherData {
   constructor(
