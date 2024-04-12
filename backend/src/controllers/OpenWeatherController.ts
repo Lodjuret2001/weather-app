@@ -11,20 +11,33 @@ class OpenWeatherController {
     let LATITUDE: number = 0;
     let LONGITUDE: number = 0;
     let query: string = "";
-    const cityName: string = req.query.cityName as string;
+    let cityName: string | undefined = req.query.cityName as string | undefined;
 
     if (cityName) {
+      cityName = cityName.toLowerCase();
       query = `/direct?q=${cityName}&limit=1&appid=${process.env.OPEN_WEATHER_APP_ID}`;
 
       const geoCodeData = (await openWeatherAxiosGeoCoding.get(query)).data[0];
+      if (!geoCodeData)
+        throw new Error(
+          `Found no city with the city name: "${cityName}", make sure to check for any misspelling :)`
+        );
 
       LATITUDE = geoCodeData.lat;
       LONGITUDE = geoCodeData.lon;
+    } else {
+      throw new Error(`"${cityName}" is not a valid city name...`);
     }
 
     query = `/forecast?lat=${LATITUDE}&lon=${LONGITUDE}&units=metric&appid=${process.env.OPEN_WEATHER_APP_ID}`;
     const weatherData: OpenWeatherData = (await openWeatherAxiosData.get(query))
       .data;
+
+    if (weatherData.city.name.toLowerCase() !== cityName)
+      throw new Error(
+        `Sorry we could not match the city name: "${cityName}". Make sure you have entered a valid city and not a state/country :)`
+      );
+
     const sortedWeatherData = sortOpenWeatherData(weatherData);
     res.send(sortedWeatherData);
   });

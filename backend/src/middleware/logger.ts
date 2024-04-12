@@ -11,8 +11,7 @@ const beforeLogger = ({ req, res, next }: LoggerParams) => {
   return next();
 };
 const afterLogger = ({ req, res, next }: LoggerParams) => {
-  console.log("Request handled...");
-  return;
+  return console.log("Request handled...");
 };
 
 export { beforeLogger, afterLogger };
