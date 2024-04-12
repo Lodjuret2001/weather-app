@@ -1,13 +1,13 @@
+import { OpenWeatherData } from "../../types/openWeatherTypes.js";
 import {
   openWeatherAxiosData,
   openWeatherAxiosGeoCoding,
 } from "../config/openWeatherAxios.js";
+import sortOpenWeatherData from "../utils/sortOpenWeatherData.js";
 import tryCatch from "../utils/tryCatch.js";
 
 class OpenWeatherController {
   getWeatherData = tryCatch(async (req, res) => {
-    let COUNTRY: string = "";
-    let CITYNAME: string = "";
     let LATITUDE: number = 0;
     let LONGITUDE: number = 0;
     let query: string = "";
@@ -18,16 +18,15 @@ class OpenWeatherController {
 
       const geoCodeData = (await openWeatherAxiosGeoCoding.get(query)).data[0];
 
-      COUNTRY = geoCodeData.country;
-      CITYNAME = geoCodeData.name;
       LATITUDE = geoCodeData.lat;
       LONGITUDE = geoCodeData.lon;
     }
 
-    query = `/forecast?lat=${LATITUDE}&lon=${LONGITUDE}&appid=${process.env.OPEN_WEATHER_APP_ID}`;
-    const weatherData = await openWeatherAxiosData.get(query);
-
-    res.send(weatherData.data);
+    query = `/forecast?lat=${LATITUDE}&lon=${LONGITUDE}&units=metric&appid=${process.env.OPEN_WEATHER_APP_ID}`;
+    const weatherData: OpenWeatherData = (await openWeatherAxiosData.get(query))
+      .data;
+    const sortedWeatherData = sortOpenWeatherData(weatherData);
+    res.send(sortedWeatherData);
   });
 }
 
