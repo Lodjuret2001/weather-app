@@ -1,14 +1,12 @@
+import { Temp } from "../../types/temp.js";
+
 class WeatherData {
   constructor(
     public city: string,
     public date: string,
-    public modifiedDate: string | Error,
-    public icon: string | Error,
+    public icon: string | undefined,
     public description: string,
-    public temperature: {
-      minTemp: number;
-      maxTemp: number;
-    }
+    public temperature: Temp
   ) {}
 }
 

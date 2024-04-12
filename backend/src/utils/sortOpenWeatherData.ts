@@ -1,7 +1,7 @@
 import { OpenWeatherData } from "../../types/openWeatherTypes.js";
+import { Temp } from "../../types/temp.js";
 import WeatherData from "./WeatherData.js";
 import returnIconUrl from "./helpers/returnIconUrl.js";
-import returnModifiedDateString from "./helpers/returnModifiedDateString.js";
 import checkMinMaxTempsIn from "./helpers/checkMinMaxTempsIn.js";
 
 function sortOpenWeatherData(weatherData: OpenWeatherData) {
@@ -12,7 +12,12 @@ function sortOpenWeatherData(weatherData: OpenWeatherData) {
 
   //"interval" is every 3-hour object in the list array.
   weatherData.list.forEach((interval: any) => {
-    const date: string = interval.dt_txt.split(" ")[0];
+    const date: string | undefined = interval.dt_txt.split(" ")[0];
+    if (date === undefined)
+      throw new Error(
+        "Could not find a valid 'date' property in the weatherData"
+      );
+
     const dateIndex: number = responseArray.findIndex(
       (interval) => interval.date === date
     );
@@ -20,9 +25,9 @@ function sortOpenWeatherData(weatherData: OpenWeatherData) {
     if (dateIndex !== -1) {
       const currentTempInWeatherData = responseArray[dateIndex].temperature;
 
-      const newTempDataInInterval = {
-        minTemp: interval.main.temp_min as number,
-        maxTemp: interval.main.temp_max as number,
+      const newTempDataInInterval: Temp = {
+        minTemp: interval.main.temp_min,
+        maxTemp: interval.main.temp_max,
       };
 
       const newTempData = checkMinMaxTempsIn(
@@ -36,12 +41,11 @@ function sortOpenWeatherData(weatherData: OpenWeatherData) {
         new WeatherData(
           city,
           date,
-          returnModifiedDateString(date),
           returnIconUrl(interval.weather[0].icon),
           interval.weather[0].description as string,
           {
-            minTemp: interval.main.temp_min as number,
-            maxTemp: interval.main.temp_max as number,
+            minTemp: interval.main.temp_min,
+            maxTemp: interval.main.temp_max,
           }
         )
       );
