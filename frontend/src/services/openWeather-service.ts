@@ -1,7 +1,5 @@
 import { backendBaseURL } from "./backendBaseURL";
 
-export type WeatherData = {};
-
 class openWeatherRoutes {
   endpoint: string;
 
@@ -9,10 +7,8 @@ class openWeatherRoutes {
     this.endpoint = endpoint;
   }
 
-  getForecastIn<WeatherData>(cityName: string) {
-    return backendBaseURL.get<WeatherData[]>(
-      this.endpoint + `?cityName=${cityName}`
-    );
+  getAll<T>(cityName: string) {
+    return backendBaseURL.get<T[]>(this.endpoint + `?cityName=${cityName}`);
   }
 }
 

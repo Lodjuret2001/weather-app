@@ -1,22 +1,24 @@
+import useWeatherData from "./hooks/useWeatherData";
 import HeaderForecast from "./components/HeaderForecast";
 import Forecast from "./components/Forecast";
 import CityInputForm from "./components/CityInputForm";
+import ErrorHandler from "./components/ErrorHandler";
 
 function App() {
-  {
-    /*Use the useWeatherData hook to retrive data on load*/
-  }
-  {
-    /*Have a usestate for the city name*/
-  }
+  const { weatherData, error, isLoading, cityName, setCityName } =
+    useWeatherData();
 
   return (
     <>
-      <div className="w-1/2 flex flex-col items-center justify-center">
-        <HeaderForecast /> {/*Pass the City name to Header*/}
-        <Forecast /> {/*Pass the weather data down here*/}
-        <CityInputForm />
-      </div>
+      {error === null && isLoading === false ? (
+        <div className="w-1/2 flex flex-col items-center justify-center">
+          <HeaderForecast cityName={cityName} />
+          <Forecast weatherData={weatherData} />
+          <CityInputForm />
+        </div>
+      ) : (
+        <ErrorHandler error={error} />
+      )}
     </>
   );
 }
