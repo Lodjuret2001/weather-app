@@ -1,7 +1,9 @@
 import useWeatherData from "./hooks/useWeatherData";
+import WeatherBackground from "./components/WeatherBackground";
 import HeaderForecast from "./components/HeaderForecast";
 import Forecast from "./components/Forecast";
 import CityInputForm from "./components/CityInputForm";
+import Loading from "./components/Loading";
 import ErrorHandler from "./components/ErrorHandler";
 
 function App() {
@@ -10,15 +12,19 @@ function App() {
 
   return (
     <>
-      {error === null && isLoading === false ? (
-        <div className="w-1/2 flex flex-col items-center justify-center">
-          <HeaderForecast cityName={cityName} />
-          <Forecast weatherData={weatherData} />
-          <CityInputForm />
-        </div>
-      ) : (
-        <ErrorHandler error={error} />
-      )}
+      <WeatherBackground>
+        {isLoading ? (
+          <Loading />
+        ) : error === null ? (
+          <>
+            <HeaderForecast cityName={cityName} />
+            <Forecast weatherData={weatherData} />
+            <CityInputForm setCityName={setCityName} />
+          </>
+        ) : (
+          <ErrorHandler error={error} />
+        )}
+      </WeatherBackground>
     </>
   );
 }

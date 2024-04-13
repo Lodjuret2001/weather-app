@@ -2,6 +2,15 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face {
+  font-family: "bubble";
+  src: url("./assets/fonts/Bubble-w10MZ.otf") format("opentype");
+}
+@font-face {
+  font-family: "cloudy";
+  src: url("./assets/fonts/Cloudy-0W244.ttf") format("truetype");
+}
+
 body {
   margin: 0;
   padding: 0;

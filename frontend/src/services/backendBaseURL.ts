@@ -1,7 +1,7 @@
 import axios from "axios";
 
-axios.create({
+const backendBaseURL = axios.create({
   baseURL: "http://localhost:3000",
 });
 
-export { axios as backendBaseURL };
+export { backendBaseURL };
