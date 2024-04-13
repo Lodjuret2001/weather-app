@@ -14,7 +14,7 @@ const ErrorHandler = ({ error }: Props) => {
           fontFamily: "cloudy",
           marginTop: "20px",
           color: "white",
-          fontSize: "25px",
+          fontSize: "2.5rem",
         }}
       >
         {error}

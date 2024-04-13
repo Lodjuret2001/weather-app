@@ -3,7 +3,7 @@
 @import "tailwindcss/utilities";
 
 @font-face {
-  font-family: "bubble";
+  font-family: "bubbly";
   src: url("./assets/fonts/Bubble-w10MZ.otf") format("opentype");
 }
 @font-face {
