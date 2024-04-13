@@ -5,7 +5,7 @@ type Props = {
   error: string;
 };
 
-const ErrorHandler = ({ error }: Props) => {
+const Error = ({ error }: Props) => {
   return (
     <div className="flex flex-col items-center">
       <img className="w-2/5" src={errorCloudImage} />
@@ -23,4 +23,4 @@ const ErrorHandler = ({ error }: Props) => {
   );
 };
 
-export default ErrorHandler;
+export default Error;

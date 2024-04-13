@@ -1,8 +1,7 @@
 import { useForm } from "react-hook-form";
 import usePlaceholderText from "../hooks/usePlaceholderText";
 
-// { setCityName }: Props
-const CityInputForm = () => {
+const CityInputForm = ({ setCityName }: Props) => {
   const {
     register,
     handleSubmit,
@@ -12,18 +11,23 @@ const CityInputForm = () => {
   const { placeholderTexts, placeholderIndex } = usePlaceholderText();
 
   const onSubmit = (data: Form) => {
-    console.log(data.input);
+    setCityName(data.input);
   };
 
+  const inputCSS: string =
+    "bg-gradient-to-r from-pink-300 from-150%  to-blue-200 to-80% outline-none p-2 rounded-md text-black placeholder:text-black";
+  const buttonCSS: string =
+    "border-2 border-blue-200 ml-5 bg-blue-200 p-[6px] rounded-md hover:bg-transparent hover:border-orange-300 hover:text-white";
+
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center mt-3">
       <form
         className="flex items-center justify-between "
         onSubmit={handleSubmit((data) => onSubmit(data))}
       >
         <input
           type="text"
-          className="bg-purple-400 outline-none p-2 rounded-md text-white placeholder:text-white"
+          className={inputCSS}
           placeholder={placeholderTexts[placeholderIndex]}
           {...register("input", {
             required: {
@@ -37,7 +41,7 @@ const CityInputForm = () => {
             },
           })}
         />
-        <button className="ml-5 bg-blue-200 p-2 rounded-md" type="submit">
+        <button className={buttonCSS} type="submit">
           Change city
         </button>
       </form>
@@ -48,9 +52,9 @@ const CityInputForm = () => {
   );
 };
 
-// type Props = {
-//   setCityName: React.Dispatch<React.SetStateAction<string>>;
-// };
+type Props = {
+  setCityName: React.Dispatch<React.SetStateAction<string>>;
+};
 
 type Form = {
   input: string;

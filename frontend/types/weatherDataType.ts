@@ -5,6 +5,6 @@ export type WeatherData = {
   description: string;
   temperature: {
     minTemp: number;
-    maxTekmp: number;
+    maxTemp: number;
   };
 };

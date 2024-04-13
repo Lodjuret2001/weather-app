@@ -4,10 +4,10 @@ import HeaderForecast from "./components/HeaderForecast";
 import Forecast from "./components/Forecast";
 import CityInputForm from "./components/CityInputForm";
 import Loading from "./components/Loading";
-import ErrorHandler from "./components/ErrorHandler";
+import Error from "./components/Error";
 
 function App() {
-  const { weatherData, error, isLoading, cityName } =
+  const { weatherData, error, isLoading, cityName, setCityName } =
     useWeatherData();
 
   return (
@@ -16,19 +16,17 @@ function App() {
         {isLoading ? (
           <Loading />
         ) : error === null ? (
-          <div className="flex flex-col items-center justify-between h-[300px]">
+          <div className="flex flex-col items-center justify-between h-auto">
             <HeaderForecast cityName={cityName} />
             <Forecast weatherData={weatherData} />
-            <CityInputForm />
+            <CityInputForm setCityName={setCityName} />
           </div>
         ) : (
-          <ErrorHandler error={error} />
+          <Error error={error} />
         )}
       </WeatherBackground>
     </>
   );
 }
-
-// setCityName={setCityName}
 
 export default App;

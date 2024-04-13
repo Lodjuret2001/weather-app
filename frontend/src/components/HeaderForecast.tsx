@@ -14,7 +14,7 @@ const HeaderForecast = ({ cityName }: Props) => {
         textDecoration: "underline",
       }}
     >
-      weather Forecast in {cityName}
+      Weather Forecast in {cityName}
     </h1>
   );
 };
