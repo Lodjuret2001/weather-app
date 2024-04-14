@@ -4,7 +4,7 @@ const usePlaceholderText = () => {
   const [placeholderIndex, setPlaceholderIndex] = useState<number>(0);
 
   const placeholderTexts: string[] = [
-    "Tokyo",
+    "Oslo",
     "New York",
     "Stockholm",
     "Paris",
