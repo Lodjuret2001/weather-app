@@ -31,6 +31,7 @@ const useWeatherData = () => {
     error,
     isLoading,
     setCityName,
+    setError,
   };
 };
 

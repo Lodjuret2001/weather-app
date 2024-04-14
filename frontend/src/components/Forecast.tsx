@@ -1,3 +1,4 @@
+import useWeatherData from "../hooks/useWeatherData";
 import { WeatherData } from "../../types/weatherDataType";
 import modifyDate from "../utils/modifyDate";
 import modifyTemp from "../utils/modifyTemp";
@@ -8,6 +9,7 @@ type Props = {
 };
 
 const Forecast = ({ weatherData }: Props) => {
+  const { setError } = useWeatherData();
   const font: string = "text-white font-['cloudy']";
   const flexbox: string = "flex items-center justify-between";
   return (
@@ -15,10 +17,10 @@ const Forecast = ({ weatherData }: Props) => {
       {weatherData.map((day) => (
         <div key={day.date} className={flexbox + " w-full"}>
           <div className={flexbox + " w-4/6"}>
-            <p className={font}>{modifyDate(day.date)}</p>
+            <p className={font}>{modifyDate(day.date, setError)}</p>
             <div className={flexbox}>
               <img className="w-[70px]" src={day.icon} />
-              <p className={font}>{modifyTemp(day.temperature)}&deg;C</p>
+              <p className={font}>{modifyTemp(day.temperature, setError)}&deg;C</p>
             </div>
           </div>
           <p className={font + " w-auto underline underline-offset-4 text-sm"}>
