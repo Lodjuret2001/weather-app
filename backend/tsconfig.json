@@ -1,9 +1,11 @@
 {
   "ts-node": {
     "esm": true,
-    "typeCheck": true,
+    "typeCheck": true
   },
   "compilerOptions": {
+    "typeRoots": ["node_modules/@types"],
+    "types": ["jest", "node", "cors", "express"],
     "module": "Node16",
     "target": "ES2022",
     "outDir": "./dist",
@@ -14,5 +16,5 @@
     "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "__tests__", "types"]
 }

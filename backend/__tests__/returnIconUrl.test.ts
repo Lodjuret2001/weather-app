@@ -1,3 +1,4 @@
+import { describe, expect, it } from "@jest/globals";
 import returnIconUrl from "../src/utils/helpers/returnIconUrl";
 
 describe("returnIconUrl function", () => {

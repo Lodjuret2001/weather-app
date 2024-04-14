@@ -1,5 +1,6 @@
+import { describe, expect, it } from "@jest/globals";
 import checkMinMaxTempsIn from "../src/utils/helpers/checkMinMaxTempsIn";
-import { Temp } from "../types/temp";
+import { Temp } from "../types/tempType";
 
 const sucessCase: Temp = {
   minTemp: 10,
