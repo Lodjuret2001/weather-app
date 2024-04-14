@@ -7,7 +7,7 @@ const usePlaceholderText = () => {
     "Oslo",
     "New York",
     "Stockholm",
-    "Paris",
+    "Moscow",
     "London",
   ];
 

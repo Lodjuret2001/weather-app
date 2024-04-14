@@ -7,7 +7,7 @@ import Loading from "./components/Loading";
 import Error from "./components/Error";
 
 function App() {
-  const { weatherData, error, isLoading, cityName, setCityName } =
+  const { weatherData, error, isLoading, cityName, setCityName, setError } =
     useWeatherData();
 
   return (
@@ -18,7 +18,7 @@ function App() {
         ) : error === null ? (
           <div className="flex flex-col items-center justify-between h-auto">
             <HeaderForecast cityName={cityName} />
-            <Forecast weatherData={weatherData} />
+            <Forecast weatherData={weatherData} setError={setError} />
             <CityInputForm setCityName={setCityName} />
           </div>
         ) : (

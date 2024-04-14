@@ -35,7 +35,8 @@ class OpenWeatherController {
 
     if (weatherData.city.name.toLowerCase() !== cityName)
       throw new Error(
-        `Sorry we could not match the city name: "${cityName}" to "${weatherData.city.name.toLowerCase()}". Enter a valid city and not a state/country, some cities may not be possible to retrive... :(`
+        `Sorry we could not match the city name: "${cityName}" maybe you meant: "${weatherData.city.name.toLowerCase()}". 
+        Enter a valid city and not a state/country, some cities may not be possible to retrive... :(`
       );
 
     const sortedWeatherData = sortOpenWeatherData(weatherData);

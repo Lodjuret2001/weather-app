@@ -8,7 +8,7 @@ const modifyTemp = (
   setError: (error: string) => void
 ): string | undefined => {
   const { minTemp, maxTemp } = temperature;
-  if (!minTemp || maxTemp) {
+  if (!minTemp || !maxTemp) {
     setError("A temperature property was not a number...");
   }
 

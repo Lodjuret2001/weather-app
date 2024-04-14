@@ -10,13 +10,14 @@ const Error = ({ error }: Props) => {
     "border-2 border-blue-200 ml-5 bg-blue-200 p-[6px] rounded-md hover:bg-transparent hover:border-orange-300 hover:text-white";
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center justify-center">
       <img className="w-2/5" src={errorCloudImage} />
       <p
         style={{
           fontFamily: "cloudy",
+          textAlign: "center",
           marginTop: "30px",
-          marginLeft: "50px",
+          marginBottom: "30px",
           color: "white",
           fontSize: "2rem",
           width: "80%",
