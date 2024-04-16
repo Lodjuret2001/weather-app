@@ -6,7 +6,10 @@ const handleError = (error: any): string => {
     message = error.message;
   }
   if (isAxiosError(error)) {
-    message = error.response?.data ? error.response.data : error.message;
+    message =
+      error.response?.data && error.response.data.length < 50
+        ? error.response.data
+        : error.message;
   }
 
   return message;
