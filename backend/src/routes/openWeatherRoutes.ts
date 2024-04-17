@@ -4,7 +4,7 @@ import express from "express";
 const router = express.Router();
 
 router.get(
-  "/api/weather-app/forecast/data",
+  "/api/forecast/data",
   openWeatherController.getWeatherData
 );
 

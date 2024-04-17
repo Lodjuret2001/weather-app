@@ -16,4 +16,4 @@ function openWeatherApi(endpoint: string) {
   return new openWeatherRoutes(endpoint);
 }
 
-export const openweatherApi = openWeatherApi("/api/weather-app/forecast/data");
+export const openweatherApi = openWeatherApi("/api/forecast/data");
