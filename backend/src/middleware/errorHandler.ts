@@ -19,6 +19,7 @@ const errorHandler = (
     message = error.message === undefined ? message : error.message;
   }
 
+  console.log(message);
   res.status(statuscode).send(message);
   return next();
 };

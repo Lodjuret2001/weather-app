@@ -8,7 +8,7 @@
     "test": "jest",
     "build": "tsc",
     "start": "nodemon --exec node --no-warnings=ExperimentalWarning --loader ts-node/esm src/server.ts",
-    "start2": "node dist/server.js"
+    "start2": "node dist/src/server.js"
   },
   "engines": {
     "node": "v21.7.0"
