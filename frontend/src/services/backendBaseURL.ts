@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const backendBaseURL = axios.create({
-  baseURL: "https://weatherapp.pontusnorup.se",
+  baseURL: "https://api.pontusnorup.se",
 });
 
 export { backendBaseURL };
