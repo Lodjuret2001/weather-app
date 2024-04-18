@@ -4,7 +4,7 @@ import { WeatherData } from "../../types/weatherDataType";
 import handleError from "../utils/handleError";
 
 const useWeatherData = () => {
-  const [cityName, setCityName] = useState<string>("Motala");
+  const [cityName, setCityName] = useState<string>("London");
   const [weatherData, setWeatherData] = useState<WeatherData[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);

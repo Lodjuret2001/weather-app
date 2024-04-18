@@ -7,7 +7,7 @@ const handleError = (error: any): string => {
   }
   if (isAxiosError(error)) {
     message =
-      error.response?.data && error.response.data.length < 50
+      error.response && error.response.data.length < 70
         ? error.response.data
         : error.message;
   }
