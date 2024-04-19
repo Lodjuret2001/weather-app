@@ -35,7 +35,7 @@ const CityInputForm = ({ setCityName }: Props) => {
               message: "A input is required...",
             },
             pattern: {
-              value: /[A-Za-z]{3}/,
+              value: /[A-Za-z]{3,}/,
               message:
                 "Cannot contain any numbers & need to be atlest 3 characters",
             },
@@ -46,7 +46,7 @@ const CityInputForm = ({ setCityName }: Props) => {
         </button>
       </form>
       {errors.input && (
-        <p className="text-red-300 mt-3 underline">{errors.input.message}</p>
+        <p className="text-red-300 mt-3 underline w-4/5 text-center">{errors.input.message}</p>
       )}
     </div>
   );
