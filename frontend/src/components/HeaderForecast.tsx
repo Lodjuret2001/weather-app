@@ -5,18 +5,8 @@ type Props = {
 };
 
 const HeaderForecast = ({ cityName }: Props) => {
-  return (
-    <h1
-      style={{
-        fontFamily: "bubbly",
-        color: "white",
-        fontSize: "3rem",
-        textDecoration: "underline",
-      }}
-    >
-      Weather Forecast in {cityName}
-    </h1>
-  );
+  const headerCSS: string = `font-['bubbly'] text-white text-[1.7rem] underline sm:text-5xl`
+  return <h1 className={headerCSS}>Weather Forecast in {cityName}</h1>;
 };
 
 export default HeaderForecast;

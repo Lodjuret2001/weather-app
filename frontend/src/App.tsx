@@ -16,7 +16,7 @@ function App() {
         {isLoading ? (
           <Loading />
         ) : error === null ? (
-          <div className="flex flex-col items-center justify-between h-auto">
+          <div className="flex flex-col items-center justify-between h-auto w-full">
             <HeaderForecast cityName={cityName} />
             <Forecast weatherData={weatherData} setError={setError} />
             <CityInputForm setCityName={setCityName} />
