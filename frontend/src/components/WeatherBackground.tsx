@@ -17,9 +17,11 @@ const WeatherBackground = ({ children }: Props) => {
           objectFit: "cover",
           zIndex: -100,
         }}
-        autoPlay
-        loop
-        muted
+        autoPlay={true}
+        playsInline
+        controls={false}
+        loop={true}
+        muted={true}
         src={weatherBackgroundVideo}
         typeof="video/mp4"
       />
